@@ -1,0 +1,11 @@
+{
+  "name": "s56_strangest_laws",
+  "version": "1.0.0",
+  "description": "Explore and discover the weirdest, quirkiest, and most unusual laws from around the globe. This project aims to compile a collection of bizarre and sometimes absurd legal regulations that exist in various jurisdictions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
