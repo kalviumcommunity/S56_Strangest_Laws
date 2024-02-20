@@ -13,3 +13,5 @@ Explore and discover the weirdest, quirkiest, and most unusual laws from around 
 3. **Informative Descriptions:** Each law comes with a brief, informative description providing context and background information.
 
 4. **Engaging Content:** Includes interesting anecdotes, trivia, or related facts to make the exploration of strange laws an engaging experience.
+
+## Deployed Link - [Here](https://strangest-laws.onrender.com/)
