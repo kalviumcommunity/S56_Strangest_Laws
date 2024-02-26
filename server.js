@@ -5,6 +5,8 @@ const port = 3000;
 const { getDB, mongooseConnect } = require('./db')
 getDB()
 
+const {router} = require('./routes');
+
 app.get('/', async (req, res) => {
   try {
     const connectionStatus = await mongooseConnect();
@@ -25,4 +27,4 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 })
 
-module.exports = app;
+app.use(router);
