@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 function App() {
   return (
-    <div>
+    <div classnName="main">
       <nav className="navbar">
         <div className="search-bar">
           <input type="text" placeholder="Search..." />
