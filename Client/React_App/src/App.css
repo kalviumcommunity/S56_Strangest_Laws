@@ -7,36 +7,9 @@
 h1{
     color: white;
 }
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background-color: #000000;
-    color: white;
-    height: 50px;
-}
 
-.search-bar input {
-    width: 300px; 
-    padding: 5px;
-}
-
-.options {
-    display: flex;
-}
-
-.options a {
-    margin-left: 10px;
-    color: white;
-    text-decoration: none;
-}
-  
-.main{
+.Land{
     width: 100vw;
     height: 100vh;
-    background-image: url("./back.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    overflow: hidden;
 }

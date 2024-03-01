@@ -1,24 +1,16 @@
 import React from 'react';
 import './App.css';
+import Nav from './Components/Nav';
+import HomePage from './Components/HomePage';
+import DataShow from './Components/DataShow';
+
 function App() {
   return (
-    <div className="main">
-      <nav className="navbar">
-        <div className="search-bar">
-          <input type="text" placeholder="Search..." />
-        </div>
-        <div className="options">
-          <a href="#">Option 1</a>
-          <a href="#">Option 2</a>
-          <a href="#">Option 3</a>
-        </div>
-      </nav>
-
-      <div>
-        <h1>Hello World</h1>
-      </div>
+    <div className="Land">
+      
+      <DataShow />
     </div>
   );
 }
 
-export default App;
+export default App

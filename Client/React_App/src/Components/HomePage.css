@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Patua+One&family=Rubik&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Hedvig+Letters+Serif:opsz@12..24&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Patua+One&family=Rubik&display=swap');
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Hedvig Letters Serif", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.main-home {
+  height: 100%;
+  background-image: linear-gradient(
+    to right bottom,
+    #07394e,
+    #0e3549,
+    #133143,
+    #152d3e,
+    #172938,
+    #172533,
+    #17222d,
+    #161e28,
+    #141a22,
+    #12161d,
+    #0f1217,
+    #0b0d11
+  );
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  color: white;
+  height: 70px;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.3px);
+  -webkit-backdrop-filter: blur(3.3px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.19);
+}
+
+.search-bar input {
+  width: 300px;
+  padding: 5px;
+}
+
+.options {
+  display: flex;
+}
+
+.options a {
+  margin-left: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+.input-box {
+  border-radius: 5px;
+  background: rgb(249, 250, 250);
+  border: 1px solid rgb(181, 189, 196);
+  font-size: 16px;
+  height: 40px;
+  line-height: 24px;
+  padding: 7px 8px;
+  color: rgb(8, 9, 10);
+  box-shadow: none;
+  outline: none;
+}
+
+.input-box:focus {
+  background-color: #fff;
+  border-color: #ffffff;
+  box-shadow: 1px 1px #ffffff;
+}
+
+.hero {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tagline {
+  height: 100%;
+  width: 50%;
+  align-items: baseline;
+  padding-top: 14vw;
+  font-size: 25px;
+  padding-left: 100px;
+}
+
+#hero-img {
+  height: 410px;
+  margin-right: 15%;
+}
+
+button {
+  font-size: 12px;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+.brandBtn {
+  background: linear-gradient(180deg, #896efd 0, #6b4afc 100%);
+  height: 44px;
+  width: 100%;
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 24px;
+  text-align: center;
+  color: #efeff1;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.brandBtn:hover {
+  background: linear-gradient(180deg, #6b4afc 0, #563bca 100%);
+}
+
+.waitlistForm {
+  box-shadow: 0 0 4px #e595ff, 0 0 48px rgba(130, 26, 250, 0.5);
+  display: flex;
+  flex-flow: row;
+  place-content: center;
+  align-items: center;
+  padding: 4px;
+  background-color: rgba(161, 138, 255, 0.24);
+  border-radius: 12px;
+  margin: 10px 25px 0 0;
+  width: auto;
+}
+
+.hero-img{
+    margin-right: 60px;
+}
+
+.btns{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: baseline;
+}
+
+/* CSS */
+.button-9 {
+  appearance: button;
+  backface-visibility: hidden;
+  background-color: #405cf5;
+  border-radius: 6px;
+  border-width: 0;
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+  font-size: 100%;
+  height: 44px;
+  line-height: 1.15;
+  margin: 12px 0 0;
+  outline: none;
+  overflow: hidden;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transform: translateZ(0);
+  transition: all .2s,box-shadow .08s ease-in;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+}
+
+.button-9:disabled {
+  cursor: default;
+}
+
+.button-9:focus {
+  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+}
