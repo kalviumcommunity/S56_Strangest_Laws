@@ -7,7 +7,7 @@ import DataShow from './Components/DataShow';
 function App() {
   return (
     <div className="Land">
-      
+
       <DataShow />
     </div>
   );
