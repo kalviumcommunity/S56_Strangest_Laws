@@ -1,5 +1,5 @@
-const mongoose=require("mongoose")
-require("dotenv").config()
+const mongoose = require("mongoose");
+require("dotenv").config();
 
 const getDB = async () => {
     try {
@@ -11,7 +11,8 @@ const getDB = async () => {
     }
 }
 
-let mongooseConnect=()=>{
-    return mongoose.connection.readyState===1? "Connected successfully":"Not Connected"
+let mongooseConnect = () => {
+    return mongoose.connection.readyState === 1 ? "Connected successfully" : "Not Connected";
 }
-module.exports={getDB,mongooseConnect}
+
+module.exports = { getDB, mongooseConnect };

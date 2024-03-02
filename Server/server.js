@@ -2,7 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
 const port = 3000;
+const cors = require('cors');
 const { getDB, mongooseConnect } = require('./db')
+app.use(cors())
 getDB()
 
 const {router} = require('./routes');
@@ -26,5 +28,7 @@ app.get('/ping',(req,res)=>{
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 })
+
+                
 
 app.use(router);
