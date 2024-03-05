@@ -18,7 +18,7 @@ const InsertLaw = () => {
         const data = { law, description, category, year, country };
         console.log("Submitting data:", data);
 
-        axios.post("https://strangest-laws.onrender.com/getLaws", data)
+        axios.post("https://strangest-laws.onrender.com/post", data)
             .then(result => {
                 console.log("Response:", result);
             })
