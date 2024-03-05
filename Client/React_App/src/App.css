@@ -9,7 +9,6 @@ h1{
 }
 
 .Land{
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    height: auto;
+    overflow: visible;
 }
