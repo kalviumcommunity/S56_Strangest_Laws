@@ -17,11 +17,11 @@ router.get('/getLaws', async (req, res) => {
 
 
 router.post('/post', (req, res) => {
-  try {
-    res.send(req.body)
-  } catch (error) {
-    console.error('Error handling POST request:', error);
-  }
+    Laws.create(req.body).then((result) => {
+      res.json(result)
+    }).catch((error) => {
+      console.error('Error handling POST request:', error);
+    })
 })
 
 router.put('/put', (req, res) => {
