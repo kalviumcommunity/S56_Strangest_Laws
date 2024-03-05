@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './DataShow.css';
 import Nav from './Nav';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom'
 
 function DataShow() {
   const [data, setData] = useState([]);
@@ -16,26 +18,35 @@ function DataShow() {
       }
     };
     fetchData();
-  }, []); 
+  }, []);
 
   return (
-    <div className='main-home'>
+    <>
       <Nav />
-      <div className="hero-flex">
-        {data.map((item, index) => (
-          <div key={index} className="card">
-            <h1>{item.law}</h1>
-            <h2>{item.description}</h2>
-            <h3>Category:</h3>
-            <p className='cate'>{item.category}</p>
-            <h3>Year:</h3>
-            <p className='cate'>{item.year}</p>
-            <h3>Country:</h3>
-            <p className='cate'>{item.country}</p>
-          </div>
-        ))}
+      <div className='main-home'>
+        <div className="insert">
+            <div className="Add-line">
+              <h1>Have a Strange Law to add!!</h1>
+              <Link to="/Insert"><Button variant="contained" className="InsertBtn">Add Here</Button></Link>
+            </div>
+        </div>
+        <div className="hero-flex">
+          {data.map((item, index) => (
+            <div key={index} className="card">
+              <h1>{item.law}</h1>
+              <h2>{item.description}</h2>
+              <h3>Category:</h3>
+              <p className='cate'>{item.category}</p>
+              <h3>Year:</h3>
+              <p className='cate'>{item.year}</p>
+              <h3>Country:</h3>
+              <p className='cate'>{item.country}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
+
   );
 }
 

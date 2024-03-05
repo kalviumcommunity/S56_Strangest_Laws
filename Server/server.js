@@ -7,6 +7,8 @@ const { getDB, mongooseConnect } = require('./db')
 app.use(cors())
 getDB()
 
+app.use(express.json());
+
 const {router} = require('./routes');
 
 app.get('/', async (req, res) => {

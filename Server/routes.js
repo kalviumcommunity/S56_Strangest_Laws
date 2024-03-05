@@ -18,7 +18,7 @@ router.get('/getLaws', async (req, res) => {
 
 router.post('/post', (req, res) => {
   try {
-    res.json('Post request to the homepage')
+    res.send(req.body)
   } catch (error) {
     console.error('Error handling POST request:', error);
   }

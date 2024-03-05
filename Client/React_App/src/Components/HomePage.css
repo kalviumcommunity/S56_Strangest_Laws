@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Patua+One&family=Rubik&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Hedvig+Letters+Serif:opsz@12..24&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Patua+One&family=Rubik&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Hedvig+Letters+Serif:opsz@12..24&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Patua+One&family=Rubik&display=swap");
 
 * {
   padding: 0;
@@ -14,21 +13,7 @@
 
 .main-home {
   height: 100%;
-  background-image: linear-gradient(
-    to right bottom,
-    #07394e,
-    #0e3549,
-    #133143,
-    #152d3e,
-    #172938,
-    #172533,
-    #17222d,
-    #161e28,
-    #141a22,
-    #12161d,
-    #0f1217,
-    #0b0d11
-  );
+  background-color: #fff;
 }
 
 .navbar {
@@ -39,7 +24,6 @@
   color: white;
   height: 70px;
   background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(3.3px);
   -webkit-backdrop-filter: blur(3.3px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.19);
@@ -75,8 +59,12 @@
 
 .input-box:focus {
   background-color: #fff;
-  border-color: #ffffff;
+  border-color: black;
   box-shadow: 1px 1px #ffffff;
+}
+
+.input{
+  align-self: center;
 }
 
 .hero {
@@ -90,101 +78,185 @@
   height: 100%;
   width: 50%;
   align-items: baseline;
-  padding-top: 14vw;
+  padding-top: 7vw;
   font-size: 25px;
   padding-left: 100px;
 }
 
+.tagline h1 {
+  color: #909391;
+}
+
 #hero-img {
   height: 410px;
-  margin-right: 15%;
+  margin-top: 60px;
 }
 
-button {
-  font-size: 12px;
-  font-family: sans-serif;
-  cursor: pointer;
-}
-
-.brandBtn {
-  background: linear-gradient(180deg, #896efd 0, #6b4afc 100%);
-  height: 44px;
-  width: 100%;
-  font-weight: 600;
-  font-size: 25px;
-  line-height: 24px;
-  text-align: center;
-  color: #efeff1;
-  border-radius: 8px;
+.button-86 {
+  all: unset;
+  width: 100px;
+  height: 30px;
+  font-size: 22px;
+  background: transparent;
   border: none;
+  position: relative;
+  color: white;
+  cursor: pointer;
+  z-index: 1;
+  padding: 10px 20px;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  padding: 0 20px;
 }
 
-.brandBtn:hover {
-  background: linear-gradient(180deg, #6b4afc 0, #563bca 100%);
+.button-86::after,
+.button-86::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: -99999;
+  transition: all 0.4s;
 }
 
-.waitlistForm {
-  box-shadow: 0 0 4px #e595ff, 0 0 48px rgba(130, 26, 250, 0.5);
+.button-86::before {
+  transform: translate(0%, 0%);
+  width: 100%;
+  height: 100%;
+  background: #0bb864;
+  border-radius: 10px;
+}
+
+.button-86::after {
+  transform: translate(10px, 10px);
+  width: 35px;
+  height: 35px;
+  background: #ffffff15;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 50px;
+}
+
+.button-86:hover::before {
+  transform: translate(5%, 20%);
+  width: 110%;
+  height: 110%;
+}
+
+.button-86:hover::after {
+  border-radius: 10px;
+  transform: translate(0, 0);
+  width: 100%;
+  height: 100%;
+}
+
+.button-86:active::after {
+  transition: 0s;
+  transform: translate(0, 5%);
+}
+
+.hero-img {
+  margin-right: 60px;
+}
+
+.btns {
   display: flex;
-  flex-flow: row;
-  place-content: center;
+  width: 100%;
   align-items: center;
-  padding: 4px;
-  background-color: rgba(161, 138, 255, 0.24);
-  border-radius: 12px;
-  margin: 10px 25px 0 0;
-  width: auto;
+  justify-content: baseline;
+  padding-top: 10px;
 }
 
-.hero-img{
-    margin-right: 60px;
-}
-
-.btns{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: baseline;
-}
-
-/* CSS */
 .button-9 {
-  appearance: button;
-  backface-visibility: hidden;
-  background-color: #405cf5;
+  background-color: #0bb864;
+  border: 1px solid #0bb864;
   border-radius: 6px;
-  border-width: 0;
-  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
-  font-size: 100%;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
   height: 44px;
   line-height: 1.15;
-  margin: 12px 0 0;
+  margin: 0 10px;
+  margin: 0;
   outline: none;
-  overflow: hidden;
   padding: 0 25px;
   position: relative;
   text-align: center;
-  text-transform: none;
-  transform: translateZ(0);
-  transition: all .2s,box-shadow .08s ease-in;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+    transform 0.1s;
   user-select: none;
   -webkit-user-select: none;
+  width: auto;
+  margin-right: 20px;
+}
+
+.button-23 {
+  background-color: #ffffff;
+  border: 1px solid #0bb864;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 44px;
+  line-height: 1.15;
+  margin: 0 10px;
+  margin: 0;
+  outline: none;
+  padding: 0 25px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
   touch-action: manipulation;
-  width: 100%;
+  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+    transform 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+
+.button-23:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+.button-9:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow 0.2s;
+}
+
+.button-23:active {
+  background-color: #f7f7f7;
+  border-color: #0bb864;
+  transform: scale(0.96);
+}
+
+.button-9:active {
+  background-color: #0bb864;
+  border-color: #0bb864;
+  transform: scale(0.96);
+}
+
+.button-23:disabled {
+  border-color: #dddddd;
+  color: #dddddd;
+  cursor: not-allowed;
+  opacity: 1;
 }
 
 .button-9:disabled {
-  cursor: default;
-}
-
-.button-9:focus {
-  box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+  border-color: #dddddd;
+  color: black;
+  cursor: not-allowed;
+  opacity: 1;
 }
