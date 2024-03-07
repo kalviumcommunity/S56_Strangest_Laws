@@ -71,3 +71,9 @@
   color: #2F4858;
   margin: 10px;
 }
+
+.card-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
