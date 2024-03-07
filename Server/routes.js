@@ -15,6 +15,12 @@ router.get("/getLaws", async (req, res) => {
   res.send(result);
 });
 
+router.get("/getLaws/:id", async (req, res) => {
+  const id = req.params.id;
+  let result = await Laws.findById(id);
+  res.send(result);
+});
+
 router.post("/post", (req, res) => {
   Laws.create(req.body)
     .then((result) => {
@@ -34,7 +40,7 @@ router.put("/put", (req, res) => {
 });
 
 router.delete("/delete/:id", async (req, res) => {
-  const { id } = req.params;
+  const { id } = req.params.id;
   try {
     const result = await Laws.findByIdAndDelete(id)
   } catch (error) {

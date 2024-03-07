@@ -13,7 +13,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/Data' element={<DataShow />} />
         <Route path='/Insert' element={<InsertLaw />} />
-        <Route path='/Update' element={<UpdateLaw />} />
+        <Route path='/Update/:id' element={<UpdateLaw />} />
       </Routes>
     </div>
   );

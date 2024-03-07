@@ -3,6 +3,8 @@ import "./InsertLaw.css";
 import Nav from './Nav';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import { useEffect } from 'react';
 
 const UpdateLaw = () => {
     const { register, formState: { errors } } = useForm();
@@ -13,6 +15,20 @@ const UpdateLaw = () => {
     const [year, setYear] = useState("");
     const [country, setCountry] = useState("");
 
+    const Submit = (e) => {
+        e.preventDefault();
+        const data = { law, description, category, year, country };
+        console.log("Submitting data:", data);
+
+        
+    };
+
+    const {id} = useParams();
+
+    useEffect(() => {
+          axios.get('https://strangest-laws.onrender.com/getLaws/'+id)
+          .then(res=>console.log(res.data))
+    }, []);
 
     return (
         <>
@@ -23,18 +39,23 @@ const UpdateLaw = () => {
                         <form className='form-insert' onSubmit={Submit}>
                             <label>Law:</label>
                             <input {...register("law", { required: true })} onChange={(e) => setLaw(e.target.value)} />
+                            {errors.law && <span>This field is required</span>}
 
                             <label>Description:</label>
                             <textarea {...register("description", { required: true })} rows="4" onChange={(e) => setDescription(e.target.value)} />
+                            {errors.description && <span>This field is required</span>}
 
                             <label>Category:</label>
                             <input {...register("category", { required: true })} onChange={(e) => setCategory(e.target.value)} />
+                            {errors.category && <span>This field is required</span>}
 
                             <label>Year:</label>
                             <input type="number" {...register("year", { required: true })} onChange={(e) => setYear(e.target.value)} />
+                            {errors.year && <span>This field is required</span>}
 
                             <label>Country:</label>
                             <input {...register("country", { required: true })} onChange={(e) => setCountry(e.target.value)} />
+                            {errors.country && <span>This field is required</span>}
 
                             <input type="submit" value="Submit" />
                         </form>
