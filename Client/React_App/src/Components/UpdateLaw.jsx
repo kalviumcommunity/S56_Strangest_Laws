@@ -52,7 +52,7 @@ const Update = () => {
                 </div>
                 <div>
                     <label htmlFor="joke">country:</label>
-                    <input type="date" id="country" name="country" value={country} onChange={(e) => setCountry(e.target.value)} required />
+                    <input type="text" id="country" name="country" value={country} onChange={(e) => setCountry(e.target.value)} required />
                 </div>
                 <button type="submit">Update</button>
             </form>
