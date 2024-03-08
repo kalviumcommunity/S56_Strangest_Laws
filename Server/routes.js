@@ -36,7 +36,7 @@ router.post("/post", (req, res) => {
     });
 });
 
-router.put("/getLaws/:id", (req, res) => {
+router.put("/UpdateLaws/:id", (req, res) => {
   const id = req.params.id;
   Laws.findByIdAndUpdate(
     { _id: id },
@@ -56,7 +56,7 @@ router.put("/getLaws/:id", (req, res) => {
     });
 });
 
-router.delete("/getLaws/:id", (req, res) => {
+router.delete("/deleteLaws/:id", (req, res) => {
   const id = req.params.id;
   Laws.findByIdAndDelete({
     _id: id,

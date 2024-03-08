@@ -17,14 +17,15 @@ function DataShow() {
     }
   };
 
-  const handleDelete = async (id) => {
-    try {
-      await axios.delete(`https://strangest-laws.onrender.com/delete/${id}`);
-      fetchData();
-    } catch (error) {
-      console.error('Error', error);
-    }
-  };
+  const handleDelete = (id) => {
+    axios.delete('https://bad-jokes.onrender.com/deleteLaws/' + id)
+      .then(result => {
+        console.log(result)
+        window.location.reload()
+      })
+      .catch(err => console.log(err))
+  }
+
 
   useEffect(() => {
     fetchData();
@@ -53,7 +54,7 @@ function DataShow() {
               <p className='cate'>{item.country}</p>
               <div className="card-button">
                 <Link to={`/Update/${item._id}`} style={{ textDecoration: "none" }}><button>Update</button></Link>
-                <button onClick={() => handleDelete(item._id)}>Delete</button>
+                <button onClick={(e) => handleDelete(joke._id)}>Delete</button>
               </div>
             </div>
           ))}
