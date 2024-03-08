@@ -17,8 +17,13 @@ router.get("/getLaws", async (req, res) => {
 
 router.get("/getLaws/:id", async (req, res) => {
   const id = req.params.id;
-  let result = await Laws.findById(id);
-  res.send(result);
+  Laws.findById({ _id: id })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 router.post("/post", (req, res) => {
@@ -31,21 +36,37 @@ router.post("/post", (req, res) => {
     });
 });
 
-router.put("/put", (req, res) => {
-  try {
-    res.json("Put request to the homepage");
-  } catch (error) {
-    console.error("Error handling PUT request:", error);
-  }
+router.put("/getLaws/:id", (req, res) => {
+  const id = req.params.id;
+  Laws.findByIdAndUpdate(
+    { _id: id },
+    {
+      law: req.body.law,
+      description: req.body.description,
+      category: req.body.category,
+      year: req.body.year,
+      country: req.body.country,
+    }
+  )
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
-router.delete("/delete/:id", async (req, res) => {
-  const { id } = req.params.id;
-  try {
-    const result = await Laws.findByIdAndDelete(id)
-  } catch (error) {
-    console.error("Error handling DELETE request:", error);
-  }
+router.delete("/getLaws/:id", (req, res) => {
+  const id = req.params.id;
+  Laws.findByIdAndDelete({
+    _id: id,
+  })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 module.exports = router;
