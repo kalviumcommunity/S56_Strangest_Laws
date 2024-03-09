@@ -1,36 +1,36 @@
-const express = require('express');
-const mongoose = require('mongoose');
+const express = require("express");
+const Router = require("./routes.js");
+const { getDB, mongooseConnect } = require("./db.js");
+const cors = require("cors");
 const app = express();
 const port = 3000;
-const cors = require('cors');
-const { getDB, mongooseConnect } = require('./db')
-app.use(cors())
-getDB()
+
+app.use(cors());
 
 app.use(express.json());
-
-const {router} = require('./routes');
-
-app.get('/', async (req, res) => {
+app.get("/", (req, res) => {
   try {
-    const connectionStatus = await mongooseConnect();
-    if (connectionStatus) {
-      res.send('Connected to mongoDB');
-    }
-  } 
-  catch (err) {
-    res.status(500).send('Failed to connect to mongoDB!');
+    res.json({
+      database: getDB() ? "connected" : "disconnected",
+    });
+  } catch (err) {
+    console.log(err);
   }
 });
 
-app.get('/ping',(req,res)=>{
-    res.status(200).send("Pong");
-})
+app.use(Router);
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-})
+app.get("/ping", (req, res) => {
+  try {
+    res.send("Pong");
+  } catch (err) {
+    console.log(err);
+  }
+});
 
-                
-
-app.use(router);
+if (require.main === module) {
+  mongooseConnect();
+  app.listen(port, async () => {
+    console.log(`🚀 server running on PORT: ${port}`);
+  });
+}
