@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Laws = require("./Models/Laws");
+const bodyParser = require("body-parser");
+
+router.use(bodyParser.json());
 
 router.get("/get", (req, res) => {
   try {
@@ -33,13 +36,17 @@ router.put("/put", (req, res) => {
   }
 });
 
-router.delete("/delete/:id", async (req, res) => {
-  const { id } = req.params;
-  try {
-    const result = await Laws.findByIdAndDelete(id)
-  } catch (error) {
-    console.error("Error handling DELETE request:", error);
-  }
+router.delete("/deleteLaw/:id", (req, res) => {
+  const id = req.params.id;
+  Laws.findByIdAndDelete({
+    _id: id,
+  })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 module.exports = router;

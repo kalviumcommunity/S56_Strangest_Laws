@@ -17,14 +17,14 @@ function DataShow() {
     }
   };
 
-  const handleDelete = async (id) => {
-    try {
-      await axios.delete(`https://strangest-laws.onrender.com/delete/${id}`);
-      fetchData();
-    } catch (error) {
-      console.error('Error', error);
-    }
-  };
+  const handleDelete = (id) => {
+    axios.delete('https://strangest-laws.onrender.com//deleteLaw/'+id)
+    .then(result=>{console.log(result)
+    window.location.reload()
+    })
+    .catch(err=>console.log(err))
+}
+
 
   useEffect(() => {
     fetchData();
