@@ -18,7 +18,7 @@ function DataShow() {
   };
 
   const handleDelete = (id) => {
-    axios.delete('https://strangest-laws.onrender.com//deleteLaw/'+id)
+    axios.delete('https://strangest-laws.onrender.com/deleteLaw/'+id)
     .then(result=>{console.log(result)
     window.location.reload()
     })
