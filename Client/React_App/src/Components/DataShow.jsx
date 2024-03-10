@@ -21,7 +21,7 @@ function DataShow() {
     axios.delete('https://strangest-laws.onrender.com/deleteLaw/' + id)
       .then(result => {
         console.log(result)
-        window.location.reload()
+        setData(data.filter(item => item._id !== id));
       })
       .catch(err => console.log(err))
   }
