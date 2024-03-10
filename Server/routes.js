@@ -49,4 +49,35 @@ router.delete("/deleteLaw/:id", (req, res) => {
     });
 });
 
+router.get("/getLaws/:id", async (req, res) => {
+  const id = req.params.id;
+  Laws.findById({ _id: id })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+router.put("/UpdateLaw/:id", (req, res) => {
+  const id = req.params.id;
+  Laws.findByIdAndUpdate(
+    { _id: id },
+    {
+      law: req.body.law,
+      description: req.body.description,
+      category: req.body.category,
+      year: req.body.year,
+      country: req.body.country,
+    }
+  )
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 module.exports = router;
