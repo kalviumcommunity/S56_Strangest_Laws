@@ -52,7 +52,7 @@ function DataShow() {
               <h3>Country:</h3>
               <p className='cate'>{item.country}</p>
               <div className="card-button">
-                <Link to={"/Update/"} style={{ textDecoration: "none" }}><button>Update</button></Link>
+                <Link to={`/UpdateLaw/${item._id}`} style={{ textDecoration: "none" }}><button>Update</button></Link>
                 <button onClick={() => handleDelete(item._id)}>Delete</button>
               </div>
             </div>

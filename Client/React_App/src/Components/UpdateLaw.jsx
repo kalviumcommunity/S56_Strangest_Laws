@@ -24,7 +24,7 @@ const Update = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put("https://strangest-laws.onrender.com/UpdateLaw/" + id, { law, description, Rating, category, country })
+        axios.put("https://strangest-laws.onrender.com/UpdateLaw/" + id, { law, description, year, category, country })
             .then(result => console.log(result))
             .catch(err => console.log(err))
     }
@@ -36,23 +36,23 @@ const Update = () => {
             <form onSubmit={handleSubmit}>
                 <div>
                     <label>law:</label>
-                    <input type="text" name="id" value={law} onChange={(e) => setLaw(e.target.value)} />
+                    <input type="text" value={law} onChange={(e) => setLaw(e.target.value)} />
                 </div>
                 <div>
                     <label>description:</label>
-                    <input type="text" name="joke" value={description} onChange={(e) => setDescription(e.target.value)} rows="3" required />
+                    <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} rows="3" required />
                 </div>
                 <div>
                     <label>category:</label>
-                    <input type="text" name="rating" value={category} onChange={(e) => setCategory(e.target.value)} required />
+                    <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} required />
                 </div>
                 <div>
                     <label>year:</label>
-                    <input type="text" name="category" value={year} onChange={(e) => setYear(e.target.value)} required />
+                    <input type="text" value={year} onChange={(e) => setYear(e.target.value)} required />
                 </div>
                 <div>
                     <label>country:</label>
-                    <input type="text" name="dateAdded" value={country} onChange={(e) => setCountry(e.target.value)} required />
+                    <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} required />
                 </div>
                 <button type="submit">Update</button>
             </form>
