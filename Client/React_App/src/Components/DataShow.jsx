@@ -18,12 +18,13 @@ function DataShow() {
   };
 
   const handleDelete = (id) => {
-    axios.delete('https://strangest-laws.onrender.com/deleteLaw/'+id)
-    .then(result=>{console.log(result)
-    window.location.reload()
-    })
-    .catch(err=>console.log(err))
-}
+    axios.delete('https://strangest-laws.onrender.com/deleteLaw/' + id)
+      .then(result => {
+        console.log(result)
+        window.location.reload()
+      })
+      .catch(err => console.log(err))
+  }
 
 
   useEffect(() => {
@@ -36,8 +37,8 @@ function DataShow() {
       <div className='main-home'>
         <div className="insert">
           <div className="Add-line">
-            <h1>Have a Strange Law to add!!</h1>
-            <Link to="/Insert"><Button variant="contained" className="InsertBtn">Add Here</Button></Link>
+            <h1>Have a Strange Law to add??</h1>
+            <Link to="/Insert"><button className="button-10" role="button">Add Here!!</button></Link>
           </div>
         </div>
         <div className="hero-flex">

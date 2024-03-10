@@ -36,6 +36,7 @@ router.put("/put", (req, res) => {
   }
 });
 
+//Delete
 router.delete("/deleteLaw/:id", (req, res) => {
   const id = req.params.id;
   Laws.findByIdAndDelete({
@@ -49,6 +50,8 @@ router.delete("/deleteLaw/:id", (req, res) => {
     });
 });
 
+
+//Update
 router.get("/getLaws/:id", async (req, res) => {
   const id = req.params.id;
   Laws.findById({ _id: id })
