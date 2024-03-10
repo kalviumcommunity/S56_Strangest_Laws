@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Laws = require("./Models/Laws");
 const bodyParser = require("body-parser");
+const { validateData } = require("./Validation.js");
 
 router.use(bodyParser.json());
 
@@ -19,12 +20,25 @@ router.get("/getLaws", async (req, res) => {
 });
 
 router.post("/post", (req, res) => {
+  console.log(req.body);
+  const { error } = validateData(req.body);
+  console.log(error);
+  if (error) {
+    return res
+      .status(400)
+      .json({
+        error: "Invalid Law Data provided",
+        message: "Invalid Law Data provided",
+        details: error.details.map((error) => error.message),
+        status: "failed",
+      });
+  }
   Laws.create(req.body)
-    .then((result) => {
-      res.json(result);
+    .then((data) => {
+      res.json(data);
     })
-    .catch((error) => {
-      console.error("Error handling POST request:", error);
+    .catch((err) => {
+      res.json(err);
     });
 });
 
@@ -49,7 +63,6 @@ router.delete("/deleteLaw/:id", (req, res) => {
       res.json(err);
     });
 });
-
 
 //Update
 router.get("/getLaws/:id", async (req, res) => {
