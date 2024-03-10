@@ -8,7 +8,7 @@ const LawDataSchema = Joi.object({
   law: Joi.string().required(),
   description: Joi.string().required(),
   category: Joi.string().required(),
-  year: Joi.string().required(),
+  year: Joi.alternatives().try(Joi.string(), Joi.number()).required(),
   country: Joi.string().required(),
 });
 
