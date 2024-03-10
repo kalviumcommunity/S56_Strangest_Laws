@@ -93,8 +93,8 @@
 }
 
 .button-86 {
-  width: 100px;
-  height: 30px;
+  width: 125px;
+  height: 50px;
   font-size: 22px;
   background: transparent;
   border: none;
@@ -258,4 +258,35 @@
   color: black;
   cursor: not-allowed;
   opacity: 1;
+}
+
+.button-10 {
+  background-color: #0bb864;
+  border: 1px solid #0bb864;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+  height: 35px;
+  line-height: 1.15;
+  margin: 0 10px;
+  margin: 0;
+  outline: none;
+  padding: 0 10px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
+    transform 0.1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+  margin-right: 20px;
+}
+
+.button-10:hover{
+  box-shadow: #098f4e 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
 }

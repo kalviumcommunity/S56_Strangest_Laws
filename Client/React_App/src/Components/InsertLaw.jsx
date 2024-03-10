@@ -5,8 +5,8 @@ import { useForm } from "react-hook-form";
 import axios from 'axios';
 
 const InsertLaw = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    
+    const { register, formState: { errors } } = useForm();
+
     const [law, setLaw] = useState("");
     const [description, setDescription] = useState("");
     const [category, setCategory] = useState("");

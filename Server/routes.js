@@ -1,44 +1,86 @@
-const express = require('express')
-const router = express.Router()
-const Laws = require('./Models/Laws')
+const express = require("express");
+const router = express.Router();
+const Laws = require("./Models/Laws");
+const bodyParser = require("body-parser");
 
-router.get('/get', (req, res) => {
+router.use(bodyParser.json());
+
+router.get("/get", (req, res) => {
   try {
-    res.json('Get request to the homepage')
+    res.json("Get request to the homepage");
   } catch (error) {
-    console.error('Error handling GET request:', error);
+    console.error("Error handling GET request:", error);
   }
-})
+});
 
-router.get('/getLaws', async (req, res) => {
-  let result = await Laws.find({})
-  res.send(result)
-})
+router.get("/getLaws", async (req, res) => {
+  let result = await Laws.find({});
+  res.send(result);
+});
 
-
-router.post('/post', (req, res) => {
-    Laws.create(req.body).then((result) => {
-      res.json(result)
-    }).catch((error) => {
-      console.error('Error handling POST request:', error);
+router.post("/post", (req, res) => {
+  Laws.create(req.body)
+    .then((result) => {
+      res.json(result);
     })
-})
+    .catch((error) => {
+      console.error("Error handling POST request:", error);
+    });
+});
 
-router.put('/put', (req, res) => {
+router.put("/put", (req, res) => {
   try {
-    res.json('Put request to the homepage')
+    res.json("Put request to the homepage");
   } catch (error) {
-    console.error('Error handling PUT request:', error);
+    console.error("Error handling PUT request:", error);
   }
-})
+});
 
-router.delete('/delete', (req, res) => {
-  try {
-    res.json('Delete request to the homepage')
-  } catch (error) {
-    console.error('Error handling DELETE request:', error);
-  }
-})
+//Delete
+router.delete("/deleteLaw/:id", (req, res) => {
+  const id = req.params.id;
+  Laws.findByIdAndDelete({
+    _id: id,
+  })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 
 
-module.exports = { router };
+//Update
+router.get("/getLaws/:id", async (req, res) => {
+  const id = req.params.id;
+  Laws.findById({ _id: id })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+router.put("/UpdateLaw/:id", (req, res) => {
+  const id = req.params.id;
+  Laws.findByIdAndUpdate(
+    { _id: id },
+    {
+      law: req.body.law,
+      description: req.body.description,
+      category: req.body.category,
+      year: req.body.year,
+      country: req.body.country,
+    }
+  )
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+module.exports = router;
