@@ -1,12 +1,40 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+// Nav.js
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 
-
 function Nav() {
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    useEffect(() => {
+        const userNameCookie = getCookie('userName');
+        const passwordCookie = getCookie('password');
+
+        if (userNameCookie && passwordCookie) {
+            setLoggedIn(true);
+        }
+    }, []);
+
+    const handleLogout = () => {
+        document.cookie = 'userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+        document.cookie = 'password=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+        setLoggedIn(false);
+    };
+
+    const getCookie = (name) => {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+
+        if (parts.length === 2) {
+            return parts.pop().split(';').shift();
+        }
+
+        return null;
+    };
+
     return (
         <div className="main">
             <nav className="navbar">
@@ -27,15 +55,19 @@ function Nav() {
                             <SearchIcon />
                         </IconButton>
                     </Paper>
-
                 </div>
                 <div className="options">
-                    <button className="button-9" role="button">SignUp</button>
-                    <button className="button-23" role="button">Login</button>
+                    {loggedIn ? (
+                        <button className="button-23" onClick={handleLogout} role="button">Logout</button>
+                    ) : (
+                        <>
+                            <Link to={"/Login"}><button className="button-23" role="button">Login</button></Link>
+                        </>
+                    )}
                 </div>
             </nav>
         </div>
-    )
+    );
 }
 
-export default Nav
+export default Nav;
