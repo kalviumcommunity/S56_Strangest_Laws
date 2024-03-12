@@ -30,7 +30,7 @@ function LoginPage() {
                 console.log('Login:', response);
 
                 const token = response.data;
-                document.cookie = `token=${token}; expires=Fri, 1 April 2799 12:00:00 UTC; path=/;`;
+                document.cookie = `token=${token}; expires=Fri, 1 April 2799 12:00:00 UTC; path=/; HttpOnly; Secure;`;
                 alert('Login Successful.!!');
                 setTimeout(() => {
                     navigate('/');
