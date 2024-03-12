@@ -1,4 +1,3 @@
-// Nav.js
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
@@ -10,17 +9,15 @@ function Nav() {
     const [loggedIn, setLoggedIn] = useState(false);
 
     useEffect(() => {
-        const userNameCookie = getCookie('userName');
-        const passwordCookie = getCookie('password');
+        const token = getCookie('token');
 
-        if (userNameCookie && passwordCookie) {
+        if (token) {
             setLoggedIn(true);
         }
     }, []);
 
     const handleLogout = () => {
-        document.cookie = 'userName=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
-        document.cookie = 'password=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+        document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
         setLoggedIn(false);
     };
 
@@ -31,7 +28,7 @@ function Nav() {
         if (parts.length === 2) {
             return parts.pop().split(';').shift();
         }
-
+    
         return null;
     };
 

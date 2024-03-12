@@ -3,6 +3,7 @@ const router = express.Router();
 const Laws = require("./Models/Laws");
 const bodyParser = require("body-parser");
 const { validateData } = require("./Validation.js");
+const jwt = require("jsonwebtoken");
 
 router.use(bodyParser.json());
 
@@ -95,5 +96,12 @@ router.put("/UpdateLaw/:id", (req, res) => {
       res.json(err);
     });
 });
+
+//Authentication
+router.post("/auth", (req, res) => {
+  const { username } = req.body;
+    const token = jwt.sign({ username: username }, "abc")
+    res.send(token)
+})
 
 module.exports = router;

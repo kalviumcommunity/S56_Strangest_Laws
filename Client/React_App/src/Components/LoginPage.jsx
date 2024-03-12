@@ -1,8 +1,8 @@
-// LoginPage.js
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 import './LoginPage.css';
+import axios from 'axios';
 
 function LoginPage() {
     const [username, setUserName] = useState('');
@@ -11,33 +11,44 @@ function LoginPage() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const userNameCookie = getCookie('userName');
-        const passwordCookie = getCookie('password');
-
-        if (userNameCookie && passwordCookie) {
+        const token = getCookie('token');
+        if (token) {
             setLoggedIn(true);
         }
     }, []);
 
-    const handleLogin = () => {
-        if (username !== '' && password !== '') {
-            document.cookie = `userName=${username}; expires=Fri, 1 April 2799 12:00:00 UTC;`;
-            document.cookie = `password=${password}; expires=Fri, 1 April 2799 12:00:00 UTC;`;
 
-            alert('Login Successful.!!');
-            setTimeout(() => {
-                navigate('/');
-                setLoggedIn(true);
-            }, 10);
-        } else {
-            alert('UserName and Password are Required!!');
+
+    const handleLogin = async () => {
+        console.log('username:', username);
+        try {
+            if (username !== '' && password !== '') {
+                const response = await axios.post("https://strangest-laws.onrender.com/auth", {
+                    username: username
+                });
+
+                console.log('Login:', response);
+
+                const token = response.data;
+                document.cookie = `token=${token}; expires=Fri, 1 April 2799 12:00:00 UTC; path=/; HttpOnly; Secure;`;
+                alert('Login Successful.!!');
+                setTimeout(() => {
+                    navigate('/');
+                    setLoggedIn(true);
+                }, 10);
+            } else {
+                alert('UserName and Password are Required!!');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred during login. Please try again.');
         }
     };
 
     const getCookie = (name) => {
         const value = `; ${document.cookie}`;
         const parts = value.split(`; ${name}=`);
-        
+
         if (parts.length === 2) {
             return parts.pop().split(';').shift();
         }
@@ -46,8 +57,7 @@ function LoginPage() {
     };
 
     const handleLogout = () => {
-        document.cookie = 'userName=; expires=Thu, 01 April 2000 12:00:00 UTC;';
-        document.cookie = 'password=; expires=Thu, 01 April 2000 12:00:00 UTC;';
+        document.cookie = 'token=; expires=Thu, 01 April 2000 12:00:00 UTC;';
         setLoggedIn(false);
     };
 
@@ -56,27 +66,18 @@ function LoginPage() {
             <Nav loggedIn={loggedIn} handleLogout={handleLogout} />
             <div>
                 <h1>Login Page</h1>
-                {loggedIn ? (
-                    <div>
-                        <p>You are already logged in. Do you want to logout?</p>
-                        <button className="logout-btn" onClick={handleLogout}>
-                            Logout
-                        </button>
-                    </div>
-                ) : (
-                    <div>
-                        <label>Enter UserName : </label>
-                        <input type="text" onChange={(e) => setUserName(e.target.value)} />
-                        <label>Enter Password : </label>
-                        <input type="password" onChange={(e) => setPassword(e.target.value)} />
-                        <button className="login-btn" onClick={handleLogin}>
-                            Login
-                        </button>
-                        <Link to="/">
-                            <button className="cancel-btn">Cancel</button>
-                        </Link>
-                    </div>
-                )}
+                <div>
+                    <label>Enter UserName : </label>
+                    <input type="text" onChange={(e) => setUserName(e.target.value)} />
+                    <label>Enter Password : </label>
+                    <input type="pass" onChange={(e) => setPassword(e.target.value)} />
+                    <button className="login-btn" onClick={handleLogin}>
+                        Login
+                    </button>
+                    <Link to="/">
+                        <button className="cancel-btn">Cancel</button>
+                    </Link>
+                </div>
             </div>
         </div>
     );
