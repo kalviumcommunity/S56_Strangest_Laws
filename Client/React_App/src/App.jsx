@@ -5,6 +5,7 @@ import DataShow from './Components/DataShow';
 import { Routes, Route } from 'react-router-dom';
 import InsertLaw from './Components/InsertLaw';
 import UpdateLaw from './Components/UpdateLaw';
+import LoginPage from './Components/LoginPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/Data' element={<DataShow />} />
         <Route path='/Insert' element={<InsertLaw />} />
         <Route path='/UpdateLaw/:id' element={<UpdateLaw />} />
+        <Route path='/Login' element={<LoginPage />} />
       </Routes>
     </div>
   );
