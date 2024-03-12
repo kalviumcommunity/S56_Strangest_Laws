@@ -1,9 +1,9 @@
 const express = require("express");
 const Router = require("./routes.js");
 const { getDB, mongooseConnect } = require("./db.js");
+const app = express();
 const cors = require("cors");
 app.use(cors());
-const app = express();
 const port = 3000;
 
 
