@@ -211,18 +211,11 @@
   height: 44px;
   line-height: 1.15;
   margin: 0 10px;
-  margin: 0;
   outline: none;
   padding: 0 25px;
   position: relative;
   text-align: center;
   text-decoration: none;
-  touch-action: manipulation;
-  transition: box-shadow 0.2s, -ms-transform 0.1s, -webkit-transform 0.1s,
-    transform 0.1s;
-  user-select: none;
-  -webkit-user-select: none;
-  width: auto;
 }
 
 .button-23:focus-visible {

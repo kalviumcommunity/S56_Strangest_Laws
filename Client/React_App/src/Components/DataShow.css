@@ -9,10 +9,9 @@
 }
 
 .hero-flex {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  grid-gap: 20px; 
 }
 
 .card {
@@ -20,12 +19,13 @@
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 400px;
   text-align: center;
-  margin: 20px 23px;
-  height: 450px;
-  position: relative; 
+  position: relative;
+  height: 100%;
+  margin: 20px;
 }
+
+
 
 .card h1 {
   margin-bottom: 10px;
@@ -50,11 +50,10 @@
 
 .card-button {
   position: absolute;
-  bottom: 20px; 
-  left: 0;
-  right: 0;
+  bottom: 10px;
   display: flex;
   justify-content: center; 
+  width: 92%;
 }
 
 .main-home {
@@ -77,4 +76,40 @@
 .insert h1 {
   color: #2F4858;
   margin: 10px;
+}
+
+.update-btn{
+  background-color: #0bb864;
+  border: 1px solid #0bb864;
+  border-radius: 2px;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  margin-right: 30px;
+  margin-right: 20px;
+  width: 70px;
+  font-size: 15px;
+  height: 30px;
+}
+
+.delete-btn{
+  outline: none;
+  box-shadow: none;
+  background-color: #ffffff;
+  border: 1px solid #c91f1f;
+  border-radius: 2px;
+  color: #c91f1f;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  width: 70px;
+  font-size: 15px;
+  height: 30px;
 }

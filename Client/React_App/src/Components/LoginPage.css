@@ -1,0 +1,69 @@
+.Insert-login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 88vh;
+}
+
+.Insert-loginform{
+    width: 25%;
+    height: 325px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
+}
+
+.Insert-loginform h1{
+    color: #0bb864;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 40px;
+}
+
+#labelloginlabel{
+    font-size: 20px;
+    margin-top: 30px;
+}
+
+.login-btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.login-btn{
+    background-color: #0bb864;
+    border: 1px solid #0bb864;
+    border-radius: 6px;
+    box-sizing: border-box;
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+      "Helvetica Neue", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    height: 44px;
+    line-height: 1.15;
+    margin: 0 10px;
+    margin: 0;
+    outline: none;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+#txt-loginpage{
+    outline: none;
+    width: 80%;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid black;
+    margin-top: 3px;
+}

@@ -15,4 +15,4 @@ Explore and discover the weirdest, quirkiest, and most unusual laws from around 
 4. **Engaging Content:** Includes interesting anecdotes, trivia, or related facts to make the exploration of strange laws an engaging experience.
 
 ## Deployed Link Back-end - [Here](https://strangest-laws.onrender.com)
-## Deployed Link Front-end - [Here](https://react-app-pink-omega.vercel.app/)
+## Deployed Link Front-end - [Here](https://react-app-pink-omega.vercel.app)
