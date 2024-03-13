@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 import './LoginPage.css';
-const axios = require("axios");
+import axios from 'axios';
 
 function LoginPage() {
     const [username, setUserName] = useState('');

@@ -13,6 +13,6 @@ const UserSchema = mongoose.Schema({
 });
 
 const User = mongoose.model("user", UserSchema);
-const Laws = mongoose.model("lawcoll", LawsSchema);
+const Laws = mongoose.model("lawscoll", LawsSchema);
 
 module.exports = { Laws, User };
