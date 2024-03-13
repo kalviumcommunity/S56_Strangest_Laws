@@ -9,7 +9,7 @@ const LawsSchema = mongoose.Schema({
 })
 
 const UserSchema = mongoose.Schema({
-    name: String,
+    userName: String,
 })
 
 const Laws = mongoose.model("lawcoll", LawsSchema)
