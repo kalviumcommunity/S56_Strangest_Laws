@@ -12,13 +12,14 @@ const InsertLaw = () => {
     const [category, setCategory] = useState("");
     const [year, setYear] = useState("");
     const [country, setCountry] = useState("");
+    const createdBy = document.cookie
+    .split('; ')
+    .find(row => row.startsWith('user='))
+    .split('=')[1];
 
     const Submit = (e) => {
         e.preventDefault();
-        const createdBy = document.cookie
-            .split('; ')
-            .find(row => row.startsWith('user='))
-            .split('=')[1];
+        console.log("name",createdBy)
 
         const data = { law, description, category, year, country, createdBy };
 
@@ -51,15 +52,15 @@ return (
                         {errors.description && <span>This field is required</span>}
 
                         <label>Category:</label>
-                        <input {...register("category", { required: true })} onChange={(e) => setCategory(e.target.value)} id='law' />
+                        <input {...register("category", { required: true })} onChange={(e) => setCategory(e.target.value)} id='category' />
                         {errors.category && <span>This field is required</span>}
 
                         <label>Year:</label>
-                        <input {...register("year", { required: true })} onChange={(e) => setYear(e.target.value)} id='law' />
+                        <input {...register("year", { required: true })} onChange={(e) => setYear(e.target.value)} id='year' />
                         {errors.year && <span>This field is required</span>}
 
                         <label>Country:</label>
-                        <input {...register("country", { required: true })} onChange={(e) => setCountry(e.target.value)} id='law' />
+                        <input {...register("country", { required: true })} onChange={(e) => setCountry(e.target.value)} id='country' />
                         {errors.country && <span>This field is required</span>}
 
                         <input type="submit" value="Submit" className="button-10" id='lawBtn' />

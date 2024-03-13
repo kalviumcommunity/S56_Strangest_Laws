@@ -10,6 +10,7 @@ const LawDataSchema = Joi.object({
   category: Joi.string().required(),
   year: Joi.alternatives().try(Joi.string(), Joi.number()).required(),
   country: Joi.string().required(),
+  createdBy: Joi.string().required()
 });
 
 const validateData = validator(LawDataSchema);
