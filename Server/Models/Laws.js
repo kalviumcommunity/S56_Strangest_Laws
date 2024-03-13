@@ -6,6 +6,7 @@ const LawsSchema = mongoose.Schema({
   category: String,
   year: String,
   country: String,
+  createdBy: String,
 });
 
 const UserSchema = mongoose.Schema({

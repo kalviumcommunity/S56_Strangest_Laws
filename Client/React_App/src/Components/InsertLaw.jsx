@@ -15,7 +15,13 @@ const InsertLaw = () => {
 
     const Submit = (e) => {
         e.preventDefault();
-        const data = { law, description, category, year, country };
+        const createdBy = document.cookie
+            .split('; ')
+            .find(row => row.startsWith('user='))
+            .split('=')[1];
+
+        const data = { law, description, category, year, country, createdBy };
+
         console.log("Submitting data:", data);
 
         axios.post("https://strangest-laws.onrender.com/post", data)
@@ -25,43 +31,44 @@ const InsertLaw = () => {
             .catch(err => {
                 console.error("Error:", err);
             });
-    };
 
-    return (
-        <>
-            <div className='Insert-main'>
-                <Nav />
-                <div className="Insert-flex">
-                    <div className="Insert-form">
-                        <form className='form-insert' onSubmit={Submit}>
-                            <h1>Insert your Law</h1>
-                            <label>Law:</label>
-                            <input {...register("law", { required: true })} onChange={(e) => setLaw(e.target.value)} id='law' />
-                            {errors.law && <span>This field is required</span>}
+};
 
-                            <label>Description:</label>
-                            <textarea {...register("description", { required: true })} rows="2" onChange={(e) => setDescription(e.target.value)} id='description' />
-                            {errors.description && <span>This field is required</span>}
+return (
+    <>
+        <div className='Insert-main'>
+            <Nav />
+            <div className="Insert-flex">
+                <div className="Insert-form">
+                    <form className='form-insert' onSubmit={Submit}>
+                        <h1>Insert your Law</h1>
+                        <label>Law:</label>
+                        <input {...register("law", { required: true })} onChange={(e) => setLaw(e.target.value)} id='law' />
+                        {errors.law && <span>This field is required</span>}
 
-                            <label>Category:</label>
-                            <input {...register("category", { required: true })} onChange={(e) => setCategory(e.target.value)} id='law' />
-                            {errors.category && <span>This field is required</span>}
+                        <label>Description:</label>
+                        <textarea {...register("description", { required: true })} rows="2" onChange={(e) => setDescription(e.target.value)} id='description' />
+                        {errors.description && <span>This field is required</span>}
 
-                            <label>Year:</label>
-                            <input {...register("year", { required: true })} onChange={(e) => setYear(e.target.value)} id='law' />
-                            {errors.year && <span>This field is required</span>}
+                        <label>Category:</label>
+                        <input {...register("category", { required: true })} onChange={(e) => setCategory(e.target.value)} id='law' />
+                        {errors.category && <span>This field is required</span>}
 
-                            <label>Country:</label>
-                            <input {...register("country", { required: true })} onChange={(e) => setCountry(e.target.value)} id='law' />
-                            {errors.country && <span>This field is required</span>}
+                        <label>Year:</label>
+                        <input {...register("year", { required: true })} onChange={(e) => setYear(e.target.value)} id='law' />
+                        {errors.year && <span>This field is required</span>}
 
-                            <input type="submit" value="Submit" className="button-10" id='lawBtn' />
-                        </form>
-                    </div>
+                        <label>Country:</label>
+                        <input {...register("country", { required: true })} onChange={(e) => setCountry(e.target.value)} id='law' />
+                        {errors.country && <span>This field is required</span>}
+
+                        <input type="submit" value="Submit" className="button-10" id='lawBtn' />
+                    </form>
                 </div>
             </div>
-        </>
-    );
+        </div>
+    </>
+);
 }
 
 export default InsertLaw;
