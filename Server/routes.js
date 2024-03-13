@@ -44,12 +44,12 @@ router.post("/post", (req, res) => {
 });
 
 router.post("/postUser", (req, res) => {
-    User.create(req.body)
+  User.create(req.body)
     .then((data) => {
       res.json(data);
     })
     .catch((err) => {
-      res.json(err);
+      res.status(400).json({ error: err.message });
     });
 });
 

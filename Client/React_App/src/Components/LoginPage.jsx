@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Nav from './Nav';
 import './LoginPage.css';
-import axios from 'axios';
+const axios = require("axios");
 
 function LoginPage() {
     const [username, setUserName] = useState('');
@@ -26,13 +26,13 @@ function LoginPage() {
                 const response = await axios.post("https://strangest-laws.onrender.com/auth", {
                     username: username
                 });
-                await axios.post("https://strangest-laws.onrender.com/postUser",username)
-                .then((res)=>{
-                    console.log(res)
-                }).catch((err)=>{
-                    console.log(err)
-                })
+            
 
+                const userResponse = await axios.post("https://strangest-laws.onrender.com/postUser", {
+                    userName: username,
+                });
+
+                console.log('User Created:', userResponse.data);
                 console.log('Login:', response);
 
                 const token = response.data;
@@ -79,7 +79,7 @@ function LoginPage() {
                         <label id='loginlabel'>Enter UserName : </label>
                         <input type="text" onChange={(e) => setUserName(e.target.value)} id="txt-loginpage" />
                         <label id='loginlabel'>Enter Password : </label>
-                        <input type="pass" onChange={(e) => setPassword(e.target.value)} id="txt-loginpage"/>
+                        <input type="pass" onChange={(e) => setPassword(e.target.value)} id="txt-loginpage" />
                         <div className="login-btns">
                             <button className="login-btn" onClick={handleLogin} >
                                 Login

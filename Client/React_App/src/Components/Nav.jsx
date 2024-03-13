@@ -10,16 +10,17 @@ function Nav() {
 
     useEffect(() => {
         const token = getCookie('token');
+        const user = getCookie('user');
 
-        if (token) {
+        if (token && user) {
             setLoggedIn(true);
         }
     }, []);
-    
+
 
     const handleLogout = () => {
         document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
-        document.cookie = `user=; expires=Fri, 1 April 2799 12:00:00 UTC; path=/;`;
+        document.cookie = 'user=; expires=Fri, 01 April 1999 12:00:00 UTC;';
         setLoggedIn(false);
     };
 
