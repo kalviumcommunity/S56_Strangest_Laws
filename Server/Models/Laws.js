@@ -8,5 +8,10 @@ const LawsSchema = mongoose.Schema({
     country: String,
 })
 
+const UserSchema = mongoose.Schema({
+    name: String,
+})
+
 const Laws = mongoose.model("lawcoll", LawsSchema)
-module.exports = Laws
+const User = mongoose.model("user", UserSchema)
+module.exports = { Laws, User }

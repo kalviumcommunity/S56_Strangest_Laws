@@ -33,7 +33,7 @@ function DataShow() {
   return (
     <>
       <Nav />
-      <div className='main-home'>
+      <div className='main-home1'>
         <div className="insert">
           <div className="Add-line">
             <h1>Have a Strange Law to add??</h1>

@@ -12,8 +12,13 @@
 }
 
 .main-home {
-  height: 100%;
-  background-color: #fff;
+  height: 89vh;
+  background-color: #f3fff9;
+}
+
+.main-home1{
+  height: auto;
+  background-color: #f3fff9;
 }
 
 .navbar {

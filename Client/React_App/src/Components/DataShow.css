@@ -15,21 +15,25 @@
 }
 
 .card {
-  background-color: #F8FCFA;
+  background-color: #ffffff;
   border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
   text-align: center;
   position: relative;
   height: 100%;
   margin: 20px;
+  /* background-color: #f2fff9; */
+
 }
 
 
 
 .card h1 {
   margin-bottom: 10px;
-  color: #333;
+  color: #214400;
+  font-weight: 700;
+  font-family: 'Frank Ruhl Libre', serif;
 }
 
 .card h2 {
@@ -113,3 +117,4 @@
   font-size: 15px;
   height: 30px;
 }
+

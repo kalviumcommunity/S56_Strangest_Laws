@@ -15,9 +15,11 @@ function Nav() {
             setLoggedIn(true);
         }
     }, []);
+    
 
     const handleLogout = () => {
         document.cookie = 'token=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+        document.cookie = `user=; expires=Fri, 1 April 2799 12:00:00 UTC; path=/;`;
         setLoggedIn(false);
     };
 

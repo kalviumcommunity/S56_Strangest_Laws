@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Laws = require("./Models/Laws");
+const {Laws,User} = require("./Models/Laws");
 const bodyParser = require("body-parser");
 const { validateData } = require("./Validation.js");
 const jwt = require("jsonwebtoken");
@@ -35,6 +35,16 @@ router.post("/post", (req, res) => {
       });
   }
   Laws.create(req.body)
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+router.post("/postUser", (req, res) => {
+    User.create(req.body)
     .then((data) => {
       res.json(data);
     })
