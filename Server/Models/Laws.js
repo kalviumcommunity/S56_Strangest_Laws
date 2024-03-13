@@ -1,3 +1,4 @@
+const { version } = require("joi");
 const mongoose = require("mongoose");
 
 const LawsSchema = mongoose.Schema({
@@ -7,11 +8,11 @@ const LawsSchema = mongoose.Schema({
   year: String,
   country: String,
   createdBy: String,
-});
+},{versionKey: false});;
 
 const UserSchema = mongoose.Schema({
   userName: String,
-});
+},{versionKey: false});
 
 const User = mongoose.model("user", UserSchema);
 const Laws = mongoose.model("lawscoll", LawsSchema);
