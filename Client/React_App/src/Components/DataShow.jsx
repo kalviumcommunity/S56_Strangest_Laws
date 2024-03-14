@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 
 function DataShow() {
   const [data, setData] = useState([]);
+  const [user, setUser] = useState([]);
 
   const fetchData = async () => {
     try {
@@ -25,9 +26,19 @@ function DataShow() {
       .catch(err => console.log(err))
   }
 
+  const dropDown = async () => {
+    try {
+      const response = await axios.get('https://strangest-laws.onrender.com/postUser');
+      const uniqueUsers = new Set(response.data.map(item => item.userName));
+      setUser(Array.from(uniqueUsers));
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
   useEffect(() => {
     fetchData();
+    dropDown();
   }, []);
 
   return (
@@ -39,6 +50,14 @@ function DataShow() {
             <h1>Have a Strange Law to add??</h1>
             <Link to="/Insert"><button className="button-10" role="button">Add Here!!</button></Link>
           </div>
+        </div>
+        <div className="dropDown">
+          <h1>Select User to View Laws</h1>
+          <select name="user" id="user" onChange={(e) => setUser(e.target.value)}>
+            {user.map((item, index) => (
+              <option key={index} value={item}>{item}</option>
+            ))}
+          </select>
         </div>
         <div className="hero-flex">
           {data.map((item) => (

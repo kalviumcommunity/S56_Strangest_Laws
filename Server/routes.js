@@ -53,6 +53,11 @@ router.post("/postUser", (req, res) => {
     });
 });
 
+router.get("/postUser", async (req, res) => {
+  let result = await User.find({});
+  res.send(result);
+});
+
 router.put("/put", (req, res) => {
   try {
     res.json("Put request to the homepage");

@@ -17,8 +17,6 @@ function LoginPage() {
         }
     }, []);
 
-
-
     const handleLogin = async () => {
         console.log('username:', username);
         try {
