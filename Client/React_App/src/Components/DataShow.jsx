@@ -61,9 +61,9 @@ function DataShow() {
             <Link to="/Insert"><button className="button-10" role="button">Add Here!!</button></Link>
           </div>
         </div>
-        <div className="dropDown">
-          <h1>Select User to View Laws</h1>
-          <select name="user" id="user" onChange={handleUserChange} value={selectedUser}>
+        <div className="dropDown" style={{ display: 'flex', justifyContent: 'end', marginTop: '10px', alignItems: 'center', width: '100%'}}>
+          <h3 style={{ color: 'black' }}>Select User to View Laws</h3>
+          <select name="user" id="user" onChange={handleUserChange} value={selectedUser} style={{ width: '110px', height: '30px', margin: '10px', cursor: 'pointer'  }}>
             {user.map((item, index) => (
               <option key={index} value={item}>{item}</option>
             ))}

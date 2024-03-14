@@ -38,7 +38,7 @@ function LoginPage() {
                 document.cookie = `user=${username}; expires=Fri, 1 April 2799 12:00:00 UTC; path=/;`;
                 alert('Login Successful.!!');
                 setTimeout(() => {
-                    navigate('/');
+                    navigate('/Data');
                     setLoggedIn(true);
                 }, 10);
             } else {
