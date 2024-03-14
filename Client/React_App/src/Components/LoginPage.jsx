@@ -24,7 +24,7 @@ function LoginPage() {
                 const response = await axios.post("https://strangest-laws.onrender.com/auth", {
                     username: username
                 });
-            
+
 
                 const userResponse = await axios.post("https://strangest-laws.onrender.com/postUser", {
                     userName: username,
@@ -34,8 +34,8 @@ function LoginPage() {
                 console.log('Login:', response);
 
                 const token = response.data;
-                document.cookie = `token=${token}; expires=Fri, 1 April 2799 12:00:00 UTC; path=/;`;
-                document.cookie = `user=${username}; expires=Fri, 1 April 2799 12:00:00 UTC; path=/;`;
+                document.cookie = `token=${token}; expires=Fri, 1 April 2799 12:00:00 UTC; path=/; HttpOnly;`;
+                document.cookie = `user=${username}; expires=Fri, 1 April 2799 12:00:00 UTC; path=/; HttpOnly`;
                 alert('Login Successful.!!');
                 setTimeout(() => {
                     navigate('/Data');

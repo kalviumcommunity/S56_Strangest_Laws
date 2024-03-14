@@ -4,7 +4,7 @@ const { getDB, mongooseConnect } = require("./db.js");
 const app = express();
 const cors = require("cors");
 const corsOptions ={
-  origin:'http://localhost:5173', 
+  origin:'https://strange-laws.vercel.app/', 
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200
 }
