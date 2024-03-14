@@ -10,7 +10,7 @@ const Update = () => {
     const [category, setCategory] = useState("");
     const [year, setYear] = useState("");
     const [country, setCountry] = useState("");
-    const createdBy = getCookie('user'); 
+    const createdBy = getCookie('user');
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -51,16 +51,16 @@ const Update = () => {
                     <div className="Insert-form">
                         <h1>Update Page</h1>
                         <form onSubmit={handleSubmit} className='form-insert'>
-                                <label>law:</label>
-                                <input type="text" value={law} onChange={(e) => setLaw(e.target.value)} id='law'/>
-                                <label>description:</label>
-                                <textarea type="textarea" value={description} onChange={(e) => setDescription(e.target.value)} rows="3" required id='description'/>
-                                <label>category:</label>
-                                <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} required id='law'/>
-                                <label>year:</label>
-                                <input type="text" value={year} onChange={(e) => setYear(e.target.value)} required id='law'/>
-                                <label>country:</label>
-                                <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} required id='law'/>
+                            <label>law:</label>
+                            <input type="text" value={law} onChange={(e) => setLaw(e.target.value)} id='law' />
+                            <label>description:</label>
+                            <textarea type="textarea" value={description} onChange={(e) => setDescription(e.target.value)} rows="3" required id='description' />
+                            <label>category:</label>
+                            <input type="text" value={category} onChange={(e) => setCategory(e.target.value)} required id='category' />
+                            <label>year:</label>
+                            <input type="text" value={year} onChange={(e) => setYear(e.target.value)} required id='year' />
+                            <label>country:</label>
+                            <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} required id='country' />
                             <button type="submit" className="button-10" id='lawBtn'>Update</button>
                         </form>
                     </div>
