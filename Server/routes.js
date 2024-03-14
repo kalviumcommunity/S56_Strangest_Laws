@@ -102,6 +102,7 @@ router.put("/UpdateLaw/:id", (req, res) => {
       category: req.body.category,
       year: req.body.year,
       country: req.body.country,
+      createdBy: req.body.createdBy,
     }
   )
     .then((data) => {

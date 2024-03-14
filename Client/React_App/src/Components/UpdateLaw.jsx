@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams,useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Nav from './Nav';
 
@@ -10,6 +10,7 @@ const Update = () => {
     const [category, setCategory] = useState("");
     const [year, setYear] = useState("");
     const [country, setCountry] = useState("");
+    const createdBy = getCookie('user'); 
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -27,11 +28,20 @@ const Update = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`https://strangest-laws.onrender.com/UpdateLaw/${id}`, { law, description, year, category, country })
-            .then(result => console.log(result))
+        axios.put(`https://strangest-laws.onrender.com/UpdateLaw/${id}`, { law, description, year, category, country, createdBy })
+            .then(result => {
+                console.log(result);
+                navigate('/Data');
+            })
             .catch(err => console.log(err));
-            navigate('/Data');
     };
+
+    function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+        return null;
+    }
 
     return (
         <>
