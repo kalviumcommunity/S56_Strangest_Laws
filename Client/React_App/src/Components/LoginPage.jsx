@@ -17,8 +17,6 @@ function LoginPage() {
         }
     }, []);
 
-
-
     const handleLogin = async () => {
         console.log('username:', username);
         try {
@@ -27,13 +25,20 @@ function LoginPage() {
                     username: username
                 });
 
+
+                const userResponse = await axios.post("https://strangest-laws.onrender.com/postUser", {
+                    userName: username,
+                });
+
+                console.log('User Created:', userResponse.data);
                 console.log('Login:', response);
 
                 const token = response.data;
-                document.cookie = `token=${token}; expires=Fri, 1 April 2799 12:00:00 UTC; path=/; HttpOnly; Secure;`;
+                document.cookie = `token=${token}; expires=Fri, 1 April 2799 12:00:00 UTC; path=/;`;
+                document.cookie = `user=${username}; expires=Fri, 1 April 2799 12:00:00 UTC; path=/;`;
                 alert('Login Successful.!!');
                 setTimeout(() => {
-                    navigate('/');
+                    navigate('/Data');
                     setLoggedIn(true);
                 }, 10);
             } else {
@@ -58,25 +63,30 @@ function LoginPage() {
 
     const handleLogout = () => {
         document.cookie = 'token=; expires=Thu, 01 April 2000 12:00:00 UTC;';
+        document.cookie = `user=; expires=Fri, 1 April 2799 12:00:00 UTC; path=/;`;
         setLoggedIn(false);
     };
 
     return (
-        <div>
+        <div >
             <Nav loggedIn={loggedIn} handleLogout={handleLogout} />
-            <div>
-                <h1>Login Page</h1>
-                <div>
-                    <label>Enter UserName : </label>
-                    <input type="text" onChange={(e) => setUserName(e.target.value)} />
-                    <label>Enter Password : </label>
-                    <input type="pass" onChange={(e) => setPassword(e.target.value)} />
-                    <button className="login-btn" onClick={handleLogin}>
-                        Login
-                    </button>
-                    <Link to="/">
-                        <button className="cancel-btn">Cancel</button>
-                    </Link>
+            <div className="Insert-login">
+                <div className='Insert-loginform'>
+                    <h1>Login Page</h1>
+                    <div className='form-insert'>
+                        <label id='loginlabel'>Enter UserName : </label>
+                        <input type="text" onChange={(e) => setUserName(e.target.value)} id="txt-loginpage" />
+                        <label id='loginlabel'>Enter Password : </label>
+                        <input type="pass" onChange={(e) => setPassword(e.target.value)} id="txt-loginpage" />
+                        <div className="login-btns">
+                            <button className="login-btn" onClick={handleLogin} >
+                                Login
+                            </button>
+                            <Link to="/">
+                                <button className="cancel-btn button-23 ">Cancel</button>
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -10,8 +10,15 @@ const LawDataSchema = Joi.object({
   category: Joi.string().required(),
   year: Joi.alternatives().try(Joi.string(), Joi.number()).required(),
   country: Joi.string().required(),
+  createdBy: Joi.string().required()
 });
+
+const userData = Joi.object({
+  userName:Joi.string().required()
+})
+
+const validateUser = validator(userData);
 
 const validateData = validator(LawDataSchema);
 
-module.exports = { validateData };
+module.exports = { validateData,validateUser };

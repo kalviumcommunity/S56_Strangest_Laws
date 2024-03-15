@@ -1,7 +1,6 @@
 .Insert-main{
     width: 100%;
     height: 100vh;
-    border: 1px solid red;
 }
 
 
@@ -10,23 +9,53 @@
     align-items: center;
     justify-content: center;
     height: 88vh;
-    border: 1px solid red;
+}
+.Insert-flex h1{
+    color: #0bb864;
+    margin-top: 10px;
+    text-align: center;
+}
+
+label{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
 }
 
 .Insert-form{
-    width: 80%;
-    height: 80%;
-    border: 1px solid red;
+    width: 50%;
+    height: 85%;
     border-radius: 10px;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px, rgba(17, 17, 26, 0.1) 0px 24px 80px;
 }
 
 .form-insert{
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+#law,#category,#year,#country{
+    outline: none;
+    width: 70%;
+    height: 25px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+#description{
+    width: 70%;
+    resize: none;
+    outline: none;
+    padding: 5px;
+    border: 1px solid black;
+}
+
+#lawBtn{
+    margin: 10px;
 }
