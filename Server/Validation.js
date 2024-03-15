@@ -13,6 +13,12 @@ const LawDataSchema = Joi.object({
   createdBy: Joi.string().required()
 });
 
+const userData = Joi.object({
+  userName:Joi.string().required()
+})
+
+const validateUser = validator(userData);
+
 const validateData = validator(LawDataSchema);
 
-module.exports = { validateData };
+module.exports = { validateData,validateUser };

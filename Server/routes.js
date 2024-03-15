@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const {Laws,User} = require("./Models/Laws");
+const { Laws, User } = require("./Models/Laws");
 const bodyParser = require("body-parser");
-const { validateData } = require("./Validation.js");
+const { validateData, validateUser } = require("./Validation.js");
 const jwt = require("jsonwebtoken");
 
 router.use(bodyParser.json());
@@ -25,14 +25,12 @@ router.post("/post", (req, res) => {
   const { error } = validateData(req.body);
   console.log(error);
   if (error) {
-    return res
-      .status(400)
-      .json({
-        error: "Invalid Law Data provided",
-        message: "Invalid Law Data provided",
-        details: error.details.map((error) => error.message),
-        status: "failed",
-      });
+    return res.status(400).json({
+      error: "Invalid Law Data provided",
+      message: "Invalid Law Data provided",
+      details: error.details.map((error) => error.message),
+      status: "failed",
+    });
   }
   Laws.create(req.body)
     .then((data) => {
@@ -44,6 +42,18 @@ router.post("/post", (req, res) => {
 });
 
 router.post("/postUser", (req, res) => {
+  const { error } = validateUser(req.body);
+  console.log(error);
+  if (error) {
+    return res
+      .status(400)
+      .json({
+        error: "Invalid User Data provided",
+        message: "Invalid User Data provided",
+        details: error.details.map((error) => error.message),
+        status: "failed",
+      });
+  }
   User.create(req.body)
     .then((data) => {
       res.json(data);
@@ -116,8 +126,8 @@ router.put("/UpdateLaw/:id", (req, res) => {
 //Authentication
 router.post("/auth", (req, res) => {
   const { username } = req.body;
-    const token = jwt.sign({ username: username }, "abc")
-    res.send(token)
-})
+  const token = jwt.sign({ username: username }, "abc");
+  res.send(token);
+});
 
 module.exports = router;
