@@ -63,7 +63,7 @@ function LoginPage() {
 
     const handleLogout = () => {
         document.cookie = 'token=; expires=Thu, 01 April 2000 12:00:00 UTC;';
-        document.cookie = `user=; expires=Fri, 1 April 2799 12:00:00 UTC; path=/;`;
+        document.cookie = `user=; expires=Fri, 1 April 2000 12:00:00 UTC; path=/;`;
         setLoggedIn(false);
     };
 
