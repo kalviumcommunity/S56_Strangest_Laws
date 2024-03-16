@@ -14,7 +14,7 @@ const LawDataSchema = Joi.object({
 });
 
 const userData = Joi.object({
-  userName:Joi.string().required()
+  createdBy:Joi.string().required()
 })
 
 const validateUser = validator(userData);
