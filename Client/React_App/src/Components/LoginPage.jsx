@@ -75,9 +75,9 @@ function LoginPage() {
                     <h1>Login Page</h1>
                     <div className='form-insert'>
                         <label id='loginlabel'>Enter UserName : </label>
-                        <input type="text" onChange={(e) => setUserName(e.target.value)} id="txt-loginpage" />
+                        <input type="text" onChange={(e) => setUserName(e.target.value)} id="txt-loginpage1" />
                         <label id='loginlabel'>Enter Password : </label>
-                        <input type="password" onChange={(e) => setPassword(e.target.value)} id="txt-loginpage" />
+                        <input type="password" onChange={(e) => setPassword(e.target.value)} id="txt-loginpage2" />
                         <div className="login-btns">
                             <button className="login-btn" onClick={handleLogin} >
                                 Login

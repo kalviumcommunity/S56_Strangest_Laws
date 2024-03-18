@@ -1,4 +1,4 @@
-// const { version } = require("joi");
+const { version } = require("joi");
 const mongoose = require("mongoose");
 
 const LawsSchema = mongoose.Schema({
