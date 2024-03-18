@@ -49,26 +49,18 @@ router.post("/post", (req, res) => {
     });
 });
 
-router.post("/postUser", (req, res) => {
-  const { error } = validateUser(req.body);
-  console.log(error);
-  if (error) {
-    return res
-      .status(400)
-      .json({
-        error: "Invalid User Data provided",
-        message: "Invalid User Data provided",
-        details: error.details.map((error) => error.message),
-        status: "failed",
-      });
+router.post("/postUser", async (req, res) => {
+  try {
+    const { userName } = req.body;
+    const existingUser = await User.findOne({ userName });
+    if (existingUser) {
+      return res.status(409).json({ message: "User already exists" });
+    }
+    const newUser = await User.create({ userName });
+    res.status(201).json(newUser);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
-  User.create(req.body)
-    .then((data) => {
-      res.json(data);
-    })
-    .catch((err) => {
-      res.status(400).json({ error: err.message });
-    });
 });
 
 router.get("/postUser", async (req, res) => {

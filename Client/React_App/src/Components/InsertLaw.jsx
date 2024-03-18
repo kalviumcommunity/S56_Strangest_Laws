@@ -3,6 +3,7 @@ import "./InsertLaw.css";
 import Nav from './Nav';
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const InsertLaw = () => {
     const { register, formState: { errors } } = useForm();
@@ -19,7 +20,7 @@ const InsertLaw = () => {
 
     const Submit = (e) => {
         e.preventDefault();
-        console.log("name", createdBy)
+        const navigate = useNavigate();
 
         const data = { law, description, category, year, country, createdBy };
 
@@ -32,6 +33,7 @@ const InsertLaw = () => {
             .catch(err => {
                 console.error("Error:", err);
             });
+            navigate('/Data');
 
     };
 
