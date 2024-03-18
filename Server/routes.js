@@ -2,16 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { Laws, User } = require("./Models/Laws");
 const bodyParser = require("body-parser");
-const { validateData, validateUser } = require("./Validation.js");
+const { validateData } = require("./Validation.js");
 const jwt = require("jsonwebtoken");
-const cors = require("cors");
-const app = express();
-const corsOptions = {
-  origin: "*",
-  credentials: true,
-  optionSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
 
 router.use(bodyParser.json());
 
@@ -49,10 +41,14 @@ router.post("/post", (req, res) => {
     });
 });
 
-router.post("/postUser", async (req, res) => {
+router.post("/postUser", (req, res) => {
   User.create(req.body)
-  .then((data) => { res.json(data); })
-  .catch((err) => { res.json(err); });
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.status(400).json({ error: err.message });
+    });
 });
 
 router.get("/postUser", async (req, res) => {
