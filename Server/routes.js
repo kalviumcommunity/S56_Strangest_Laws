@@ -50,17 +50,9 @@ router.post("/post", (req, res) => {
 });
 
 router.post("/postUser", async (req, res) => {
-  try {
-    const { userName } = req.body;
-    const existingUser = await User.findOne({ userName });
-    if (existingUser) {
-      return res.status(409).json({ message: "User already exists" });
-    }
-    const newUser = await User.create({ userName });
-    res.status(201).json(newUser);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
+  User.create(req.body)
+  .then((data) => { res.json(data); })
+  .catch((err) => { res.json(err); });
 });
 
 router.get("/postUser", async (req, res) => {
