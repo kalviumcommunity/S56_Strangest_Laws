@@ -2,16 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { Laws, User } = require("./Models/Laws");
 const bodyParser = require("body-parser");
-const { validateData, validateUser } = require("./Validation.js");
+const { validateData } = require("./Validation.js");
 const jwt = require("jsonwebtoken");
-const cors = require("cors");
-const app = express();
-const corsOptions = {
-  origin: "*",
-  credentials: true,
-  optionSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
 
 router.use(bodyParser.json());
 
@@ -50,18 +42,6 @@ router.post("/post", (req, res) => {
 });
 
 router.post("/postUser", (req, res) => {
-  const { error } = validateUser(req.body);
-  console.log(error);
-  if (error) {
-    return res
-      .status(400)
-      .json({
-        error: "Invalid User Data provided",
-        message: "Invalid User Data provided",
-        details: error.details.map((error) => error.message),
-        status: "failed",
-      });
-  }
   User.create(req.body)
     .then((data) => {
       res.json(data);

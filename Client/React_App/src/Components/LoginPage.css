@@ -60,7 +60,15 @@
     margin-right: 30px;
 }
 
-#txt-loginpage{
+#txt-loginpage1{
+    outline: none;
+    width: 80%;
+    height: 30px;
+    padding: 5px;
+    border: 1px solid black;
+    margin-top: 3px;
+}
+#txt-loginpage2{
     outline: none;
     width: 80%;
     height: 30px;
